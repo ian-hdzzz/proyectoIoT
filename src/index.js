@@ -10,7 +10,7 @@ const app = express();
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 const exphbs = create({
-    defaultLayout: 'main',
+    defaultLayout: 'home',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     extname: '.hbs',
@@ -31,8 +31,8 @@ app.use((req,res,next) =>{
 })
 
 //Routes 
-app.use(require('./routes/index'));
-app.use(require('./routes/authentication'));
+app.use('/psb', require('./routes/index'));
+app.use('/psb', require('./routes/authentication'));
 
  
  

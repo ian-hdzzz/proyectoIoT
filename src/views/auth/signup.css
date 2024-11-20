@@ -1,5 +1,5 @@
 :root{
-    --var-color:#000a0f;
+    --var-background:#000a0f;
 
 }
 
@@ -10,8 +10,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background: #000;
 }
 body{
-    background: var(--var-color);
+    background: var(--var-background);
 }
