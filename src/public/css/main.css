@@ -1,0 +1,113 @@
+:root{
+    --var-color:#000a0f;
+
+}
+
+
+*{
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+
+body{
+    background: var(--var-color);
+}
+
+.contenedor-header{
+    position: sticky; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    
+}
+.contenedor-header .logo{
+    margin: 40px;
+    width: 20%;
+    color: #fff;
+    font-size: 30px;
+    cursor:pointer;
+}
+.contenedor-header .logo a{
+    color: #fff;
+    text-decoration: none;
+}
+.contenedor-header nav{
+    margin: auto -940px auto auto;
+    background: none;
+    box-shadow: none;
+
+
+}
+.contenedor-header nav a{
+    text-decoration: none;
+}
+.contenedor-header .botones{
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin: auto 60px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.contenedor-header .botones a{
+   text-decoration: none;
+   
+}
+
+.contenedor-header .botones button{
+    background: none;
+    width: auto;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 13px 25px;
+    text-decoration: none;
+    transform: all 0.5 ease 3s;
+    font-weight: bolder;
+ }
+ .contenedor-header .botones .comenzar{
+    background: rgb(0, 179, 255);
+}
+.contenedor-header .botones .comenzar:hover{
+    cursor: pointer;
+    background: rgb(0, 156, 223);
+
+}
+ .contenedor-header .botones .login{
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+}
+.contenedor-header .botones .login:hover{
+    cursor: pointer;
+    background: #ffffff24;
+}
+
+
+.contenedor{
+    background: #fff;
+    color: #000a0f;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:800px){
+    .contenedor-header nav{
+        display: none;
+    }
+    .contenedor-header .botones{
+        display: none;
+    }
+}

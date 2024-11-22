@@ -1,0 +1,78 @@
+<style>
+  body {
+    margin: 0;
+    height: 300vh; /* Altura para permitir el scroll */
+    transition: background-color 1s ease; /* Transición suave */
+    }
+
+    h1 {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--var-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      z-index: 10;
+    }
+    .section {
+        padding: 50px;
+        text-align: center;
+        font-size: 18px;
+        color: #f4f4f4;
+        margin: auto;
+        background:none;
+        height: 50%;
+        width: 100%;
+        height: 100vh; /* Altura de cada sección igual a la altura de la ventana */
+        transition: background-color 1.5s ease; /* Transición suave del color */
+    }
+    .section .section-1{
+        background-color: none; /* Fondo negro fijo */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     margin-bottom: ;
+    }
+    .section p{
+        margin-bottom: 30px;
+        font-size: 70px;
+        text-align: left;
+        font-weight: bolder;
+    }
+    .section .section-2{
+        background-color: none; /* Fondo negro por defecto */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  </style>
+   
+  <div class="section section-1">
+    <p>Cuidando cada instante, protegiendo cada pulso.</p>
+  </div>
+  <div class="section section-2">
+    <p>Sección 2: Desplázate hacia abajo para ver más contenido.</p>
+  </div>
+ 
+ <script>
+    // Seleccionamos el segundo div
+    const section2 = document.querySelector('.section-2');
+
+    window.addEventListener('scroll', () => {
+      const section2Position = section2.getBoundingClientRect().top; // Distancia del 2º div al viewport
+
+      // Si la parte superior del segundo div está visible, cambiamos el color
+      if (section2Position <= window.innerHeight / 2) { 
+        section2.style.backgroundColor = 'white'; // Cambia a blanco
+        section2.style.color = 'black'; // Cambia el texto a negro
+      } else {
+        section2.style.backgroundColor = 'black'; // Cambia a negro
+        section2.style.color = 'white'; // Cambia el texto a blanco
+      }
+    });
+  </script>

@@ -8,9 +8,10 @@ const app = express();
 
 //Settings
 app.set('port', process.env.PORT || 4000);
+
 app.set('views', path.join(__dirname, 'views'));
 const exphbs = create({
-    defaultLayout: 'home',
+    defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     extname: '.hbs',
