@@ -1,6 +1,6 @@
 <div class="contenedor-header">
-  <div class="logo" href="/psb/home">
-    <a href="/psb/home">PSB</a>
+  <div class="logo" href="/home">
+    <a href="/home">PSB</a>
   </div>
   <nav>
     <ul class="nav-links">
@@ -10,8 +10,18 @@
     </ul>
   </nav>
   <div class="botones">
+    {{#if user}}
+    <li class="nav-item">
+      <a href="/profile" class="nav-link"> Perfil</a>
+    </li>
+    <li class="nav-item">
+      <a href="/logout" class="nav-link">Salir</a>
+    </li>
+    {{else}}
+     <a href="/signup"><button class="comenzar">Comenzar</button></a>
+    <a href="/login"><button class="login">Iniciar Sesión</button></a>
+    {{/if}}
 
-    <a href="/psb/signup"><button class="comenzar">Comenzar</button></a>
-    <a href="/psb/signup"><button class="login">Iniciar Sesión</button></a>
+   
   </div>
 </div>

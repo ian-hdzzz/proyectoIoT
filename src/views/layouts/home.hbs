@@ -1,0 +1,192 @@
+<style>
+  body {
+    margin: 0;
+    height: 300vh; /* Altura para permitir el scroll */
+    transition: background-color 1s ease; /* Transición suave */
+    position: relative;
+    }
+
+    .section {
+        padding: 50px;
+        color: #f4f4f4;
+        background:none;
+        width: 100%;
+        height: 90vh; /* Altura de cada sección igual a la altura de la ventana */
+        transition: background-color 1.5s ease; /* Transición suave del color */
+        font-family: var(--var-font_2);
+        font-weight: bolder;
+    }
+
+    .inicio{
+        font-size: 52px;
+        position: relative;
+        display: flex;
+        justify-content: space-evenly ;
+        align-items: center;
+        background: black; /* Fondo negro fijo */
+        color: white;
+        padding: 0 20px 0 10px;
+    }
+    
+    .inicio_texto{
+      max-width: 600px;
+    }
+    .inicio_texto p{
+        font-size: clamp(1em, 2vw, 3em);
+        margin-bottom:50px;
+        letter-spacing: normal;    
+    }
+
+    .inicio_texto p span{
+      color: var(--var-blue);
+    }
+
+   /* img pulsera */
+   .inicio_img{
+    position: relative;
+    top: -25px;
+    right: -40px;
+   }
+
+   .inicio_img img{
+    max-width: 450px;
+    height: auto;
+    animation: animate 2.5s linear infinite;
+   }
+
+  /*Botones inicio*/
+  .btn{
+    width: 190px;
+    height: auto;
+    color: var(--var-white);
+    text-align: center;
+    background-color: var(--var-blue);
+    padding: 15px 25px;
+    border-radius: 25px;
+    transition: .4s;
+    font-weight: bold;
+  }
+  .btn:hover{
+    background:  rgb(6, 164, 255);
+    box-shadow: 5px 5px 14px -5px rgba(40, 65, 203, 0.5);
+    color: var(--var-white);
+    width: 200px;
+    height: auto;
+  }
+  .btn-secondary{
+    background: none;
+    border: 1px solid white;
+    color: var(--var-white);
+  }
+  
+  .btn-secondary:hover{
+    background: #fff;
+    color: var(--var-blue);
+  }
+  /*animacion*/
+  .animation{
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    left: 0;
+
+  }
+  .animation path{
+    stroke: var(--var-blue);
+    stroke-dasharray: 3402;
+    stroke-dashoffset: 3402;
+    animation: animatesvg 3s linear forwards;
+  }
+  @keyframes animatesvg{
+    to{
+      stroke-dashoffset: 0;
+    }
+  }
+  /*section 2*/
+
+    .section-2{
+        background-color: none; /* Fondo negro por defecto */
+        color: white;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+    }
+
+    .section .h1{
+      font-family: 50px;
+      margin: 50px auto;
+      font-weight: bolder;
+      padding: 50px;
+      font-size: 60px;
+      width: 85%;
+    }
+    .section .h2{
+      margin: auto;
+      padding: 50px;
+      font-size: 20px;
+      width: 70%;
+    }
+
+    
+   @keyframes animate {
+      0%, 100% {
+        transform: translateY(-20px)
+      }
+      50%{
+        transform: translateY(20px)
+      }
+   }
+
+  </style>
+ 
+
+  <section class="section inicio">
+      {{!-- ANIMACION --}}
+      {{!-- <svg class="animation"viewBox="0 0 1920 818" fill="none">
+        <path d="M-21.6034 185.344C-27.0719 187.757 -30.8799 184.898 -25.1537 191.651C-19.8844 197.865 -16.2258 205.606 -11.9512 212.668C-3.86264 226.029 6.74426 236.687 16.1029 248.812C43.2609 283.998 65.7379 326.479 100.668 352.46C144.033 384.714 194.708 408.769 244.738 423.451C301.351 440.065 364.962 445.696 423.074 436.458C452.752 431.74 482.973 419.781 510.306 406.009C534.091 394.025 562.527 377.321 578.659 353.256C596.104 327.234 608.084 305.022 613.835 272.521C618.822 244.336 622.309 215.749 617.611 187.177C607.932 128.307 577.327 76.8153 531.028 47.0666C491.795 21.8584 446.416 -0.871598 400.421 11.4528C352.249 24.3606 309.256 59.0209 288.039 110.812C276.321 139.415 265.303 165.1 261.702 196.855C257.766 231.555 255.065 267.201 256.943 302.202C261.06 378.922 299.914 446.585 336.206 508.914C355.501 542.053 385.012 570.624 412.268 595.023C442.603 622.179 474.92 644.924 507.679 667.878C539.881 690.442 578.409 705.613 614.524 717.771C652.365 730.51 691.891 741.194 730.834 748.47C811.464 763.536 896.485 750.89 973.636 721.531C1008.36 708.317 1042.57 685.699 1070.58 659.058C1093.93 636.848 1120.54 613.711 1135 582.374C1147.71 554.835 1159.89 530.976 1161.6 499.095C1163.02 472.712 1159.91 448.563 1149.52 424.757C1130.69 381.596 1093.9 345.493 1051.36 337.056C1009.47 328.748 971.339 343.379 937.639 371.293C904.321 398.89 892.02 452.574 891.94 496.946C891.893 523.518 894.4 549.461 902.335 574.648C911.628 604.142 923.331 635.813 940.464 660.486C959.755 688.268 980 715.71 1005.81 736.043C1037.37 760.902 1070.68 776.986 1107.74 788.482C1192.01 814.621 1289.15 817.293 1374.15 794.592C1450.3 774.254 1535.29 726.465 1582.91 653.195C1620.58 595.235 1644.02 521.375 1629.99 448.789C1618.11 387.326 1591.89 325.907 1540.95 295.019C1503.94 272.577 1453.1 266.669 1416.53 292.436C1400.32 303.861 1381.62 327.828 1374.08 347.724C1365.13 371.342 1362.3 397.931 1362.31 423.416C1362.33 453.506 1368.08 484.48 1379.79 511.629C1393 542.281 1418.1 566.775 1440.09 588.938C1493.33 642.597 1558.91 676.471 1628.67 690.521C1663.21 697.478 1697.8 701.929 1732.92 701.315C1766.79 700.723 1800.92 690.792 1833.16 679.579C1858.44 670.788 1883.17 659.04 1906.7 645.3C1915.77 640.002 1926.05 635.807 1933.73 627.936C1938.35 623.195 1942 617.846 1947 613.491" stroke="#0D99FF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg> --}}
+    <div class="inicio_texto">
+      <p>Cuidando cada <span>instante,</span> <span>protegiendo</span> cada pulso</p>
+
+
+      <div class="buttons">
+        <a href="/signup" class="btn">Comenzar</a>
+        <a href="/home" class="btn btn-secondary">Conócenos</a>
+      </div>
+    </div>
+    <div class="inicio_img">
+      <img src="/img/watch2.png" alt="">
+    </div>
+
+  </section>
+  <section class="section section-2">
+    <p class="h1">Combinamos tecnología, innovación y empatía para transformar vidas</p>
+    <p class="h2">Nuestra misión es brindar seguridad y tranquilidad a quienes enfrentan los desafíos del Parkinson, desarrollando pulseras inteligentes que detectan ataques y envían alertas inmediatas a cuidadores y familiares.</p>
+
+    <p class="h1">Nuestra esencia es simple: brindar tranquilidad, seguridad y apoyo, porque cada latido merece ser protegido.</p>
+    <p class="h2">Nuestra visión es liderar un futuro donde la tecnología sea un puente entre la salud y la calidad de vida, protegiendo cada latido y cuidando cada instante. Con PSB, cada pulsera es un compromiso con el bienestar y la dignidad de quienes más lo necesitan.</p>
+  </section>
+ 
+ <script>
+    // Seleccionamos el segundo div
+    const section2 = document.querySelector('.section-2');
+
+    window.addEventListener('scroll', () => {
+      const section2Position = section2.getBoundingClientRect().top; // Distancia del 2º div al viewport
+
+      // Si la parte superior del segundo div está visible, cambiamos el color
+      if (section2Position <= window.innerHeight / 2.5) { 
+        section2.style.backgroundColor = 'white'; // Cambia a blanco
+        section2.style.color = 'black'; // Cambia el texto a negro
+      } else {
+        section2.style.backgroundColor = 'black'; // Cambia a negro
+        section2.style.color = 'white'; // Cambia el texto a blanco
+      }
+    });
+
+    //Animation
+    let path = document.querySelector('path');
+    let length = path.getTotalLength();
+    console.log(length);
+  </script>

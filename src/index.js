@@ -1,14 +1,22 @@
 const express = require('express');
 const morgan = require('morgan');
-const { create } = require('express-handlebars');
 const path = require('path');
+const { create } = require('express-handlebars');
+const session = require('express-session');
+const validator = require('express-validator');
+const passport = require('passport');
+const flash = require('connect-flash');
+const MySQLStore = require('express-mysql-session')(session);
+const bodyParser = require('body-parser');
+
+const { database } = require('./keys');
 
 //Initializations
 const app = express();
+require('./lib/passport');
 
 //Settings
 app.set('port', process.env.PORT || 4000);
-
 app.set('views', path.join(__dirname, 'views'));
 const exphbs = create({
     defaultLayout: 'main',
@@ -22,18 +30,32 @@ app.engine('.hbs', exphbs.engine);
 app.set('view engine', '.hbs');
 
 //Middlewares
+app.use(flash());
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(session({
+    secret: 'ian',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+  }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Global variables
-app.use((req,res,next) =>{
+app.use((req, res, next) => {
+    app.locals.message = req.flash('message');
+    app.locals.success = req.flash('success');
+    app.locals.user = req.user;
     next();
-})
+  });
+  
 
 //Routes 
-app.use('/psb', require('./routes/index'));
-app.use('/psb', require('./routes/authentication'));
+app.use(require('./routes/index'));
+app.use(require('./routes/authentication'));
 
  
  

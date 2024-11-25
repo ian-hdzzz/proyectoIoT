@@ -1,5 +1,10 @@
 :root{
-    --var-color:#000a0f;
+    --var-black:#000a0f;
+    --var-blue:rgb(0, 85, 255);
+    --var-white: #fff;
+    --var-font_1: "Libre Franklin", sans-serif;
+    --var-font_2: "Roboto", sans-serif;
+
 
 }
 
@@ -13,7 +18,7 @@
 
 
 body{
-    background: var(--var-color);
+    background: var(--var-black);
 }
 
 .contenedor-header{
@@ -24,14 +29,19 @@ body{
     height: 75px;
     z-index: 1000; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    
+    transition: .4s;
 }
 .contenedor-header .logo{
     margin: 40px;
     width: 20%;
     color: #fff;
-    font-size: 30px;
+    font-size: 35px;
     cursor:pointer;
+    transition: .4s;
+}
+.contenedor-header .logo:hover{
+    font-size: 37px;
+
 }
 .contenedor-header .logo a{
     color: #fff;
@@ -46,6 +56,11 @@ body{
 }
 .contenedor-header nav a{
     text-decoration: none;
+    transition: .4s;
+}
+.contenedor-header nav a:hover{
+    color:  var(--var-blue);
+    font-size: 17px;
 }
 .contenedor-header .botones{
     display: flex;
@@ -72,13 +87,14 @@ body{
     text-decoration: none;
     transform: all 0.5 ease 3s;
     font-weight: bolder;
+    transition: .4s;
  }
  .contenedor-header .botones .comenzar{
-    background: rgb(0, 179, 255);
+    background: var(--var-blue);
 }
 .contenedor-header .botones .comenzar:hover{
     cursor: pointer;
-    background: rgb(0, 156, 223);
+    background:  rgb(6, 164, 255);
 
 }
  .contenedor-header .botones .login{

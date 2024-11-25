@@ -1,0 +1,170 @@
+ <style>
+    body, h1, h2, h3, h4, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.img {
+    width:100%;
+    height:auto;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.upper_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #314B6E;
+    color: #fff;
+    padding: 10px 20px;
+    flex-shrink: 0;
+}
+
+.upper_bar-left .tab, .user-menu {
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    text-decoration: underline;
+}
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-display {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.user-display:hover {
+    text-decoration: underline;
+}
+
+.user-menu .drop {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.user-menu .drop a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-menu .drop a:last-child {
+    border-bottom: none;
+}
+
+.user-menu .drop a:hover {
+    background-color: #e2f1ff;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    background: linear-gradient(135deg, #8197AC, #BDB3A3);
+    align-content: start;
+    flex-grow: 1;
+}
+
+.profile {
+    gap: 20px;
+    padding: 20px;
+    align-content: start;
+    text-align: center;
+    background-color: #fff;
+    flex-grow: 1;
+}
+
+.data {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-content: start;
+    flex-grow: 1;
+}
+
+.box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    overflow: auto;
+    align-self: start;
+}
+ </style>
+
+ <main class="main-content">
+        <div class="profile">
+            <h3>Paciente</h3>
+            <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Roberto" style="width:30%; height:auto;">
+            <h4>{{ user.name }}</h4>
+            <div class="data">
+                <li>Edad: 20 años</li>
+                <li>Dirección: ---</li>
+            </div>
+        </div>
+        <div class="boxes">
+            <div class="box">
+                <h3>Último Registro Guardado</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d933.6891806048242!2d-100.37312207155342!3d20.597990254174928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDM1JzUyLjgiTiAxMDDCsDIyJzIwLjkiVw!5e0!3m2!1ses-419!2smx!4v1732409930279!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p>Fecha: 23/11/24</p>
+                <p>Hora: 22:59</p>
+            </div>
+            <div class="box">
+                <h3>Monitoreo actual</h3>
+                <img src="https://www.colorincolorado.org/sites/default/files/43815-graph.jpg" alt="Gráfica" style="width:80%; height:auto;">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const userMenu = document.querySelector('.user-menu');
+        const drop = userMenu.querySelector('.drop');
+
+        userMenu.addEventListener('click', () => {
+            drop.style.display = drop.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!userMenu.contains(event.target)) {
+                drop.style.display = 'none';
+            }
+        });
+
+    </script>

@@ -1,15 +1,10 @@
 CREATE DATABASE database_PSB;
 USE database_PSB;
 -- Datos Usuario
-CREATE TABLE `usuarios` (
-  `ID` int(11) NOT NULL,
-  `Username` varchar(20) NOT NULL,
+CREATE TABLE `user` (
+  `ID` int(11) NOT NULL
   `Correo` varchar(30) NOT NULL,
-  `Contrasena` varchar(32) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido1` varchar(50) NOT NULL,
-  `Apellido2` varchar(50) DEFAULT NULL,
-  `Edad` int(11) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `Direccion_ID` int(11) NOT NULL
 ) ;
 ALTER TABLE usuarios
@@ -17,6 +12,18 @@ ALTER TABLE usuarios
 
 ALTER TABLE usuarios
     MODIFY ID INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+CREATE TABLE datos_personales (
+    id_datos INT AUTO_INCREMENT PRIMARY KEY,
+    id_user INT NOT NULL,
+    name varchar(50) NOT NULL,
+    lastname varchar(50) NOT NULL,
+    adress VARCHAR(255),
+    age int(11) NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES user(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 
 DESCRIBE usuarios;
 -- Direccion 
