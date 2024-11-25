@@ -1,22 +1,22 @@
 CREATE DATABASE database_PSB;
 USE database_PSB;
+
 -- Datos Usuario
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL
-  `Correo` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `Direccion_ID` int(11) NOT NULL
+  `name` varchar(30) NOT NULL,
 ) ;
-ALTER TABLE usuarios
+ALTER TABLE user
     ADD PRIMARY KEY (ID);
 
-ALTER TABLE usuarios
+ALTER TABLE user
     MODIFY ID INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
 CREATE TABLE datos_personales (
     id_datos INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT NOT NULL,
-    name varchar(50) NOT NULL,
     lastname varchar(50) NOT NULL,
     adress VARCHAR(255),
     age int(11) NOT NULL,
@@ -25,7 +25,6 @@ CREATE TABLE datos_personales (
     ON UPDATE CASCADE
 );
 
-DESCRIBE usuarios;
 -- Direccion 
 CREATE TABLE `direcciones` (
   `ID` int(11) NOT NULL,
