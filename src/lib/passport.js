@@ -1,8 +1,18 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const pool = require('../database');
+// const pool = require('../database');
 const helpers = require('../lib/helpers');
+
+import pg from 'pg';
+import { config } from 'dotenv'
+
+config();
+
+const pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+    // ssl: true
+})
 
 passport.use('local.login', new LocalStrategy({
     usernameField: 'email',
