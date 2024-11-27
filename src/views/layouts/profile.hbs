@@ -1,5 +1,6 @@
+  <link rel="stylesheet" href="/css/bpm.css">
  <style>
-    body, h1, h2, h3, h4, p, a {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,142 +18,382 @@ body {
     margin: 0;
 }
 
-.upper_bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #314B6E;
-    color: #fff;
-    padding: 10px 20px;
-    flex-shrink: 0;
-}
-
-.upper_bar-left .tab, .user-menu {
-    margin-right: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.tab:hover {
-    text-decoration: underline;
-}
-
-.user-menu {
-    position: relative;
-    cursor: pointer;
-}
-
-.user-display {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-}
-
-.user-display:hover {
-    text-decoration: underline;
-}
-
-.user-menu .drop {
-    display: none;
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.user-menu .drop a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    border-bottom: 1px solid #ddd;
-}
-
-.user-menu .drop a:last-child {
-    border-bottom: none;
-}
-
-.user-menu .drop a:hover {
-    background-color: #e2f1ff;
-}
 
 .main-content {
+    margin: auto;
+    padding: 30px;
+    width: 100%;
+    height: auto;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
-    background: linear-gradient(135deg, #8197AC, #BDB3A3);
-    align-content: start;
-    flex-grow: 1;
+    grid-template-columns: .8fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    grid-template-areas:
+      "profile graph graph"
+      "profile mapa mapa"
+      "profile mapa mapa";
+
 }
 
 .profile {
-    gap: 20px;
+    grid-area: profile;
     padding: 20px;
     align-content: start;
     text-align: center;
-    background-color: #fff;
+    background:#fff;
     flex-grow: 1;
+    border-radius: 20px;
+     color: rgb(0, 36, 94);
 }
 
-.data {
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: left;
-}
 
-.boxes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    align-content: start;
-    flex-grow: 1;
-}
 
 .box {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 20px;
+    margin: auto;
     padding: 15px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
     overflow: auto;
     align-self: start;
+    width: 100%;
+    color: #fff;
 }
+/*Profile*/
+.fa-user{
+    font-size: 100px;
+    margin: 20px auto;
+    color: #02abe9;
+}
+
+.h1 {
+    font-size: 30px;
+    padding: 20px;
+    font-weight: 700;
+}
+
+.h2{
+    color: rgb(0, 36, 94);
+    font-size: 28px;
+    font-weight: 700;
+    padding: 20px;
+
+}
+.info{
+    font-weight: bold;
+    padding: 10px;
+    font-size: 18px;
+    margin-left: -220px;
+}
+.profile .data{
+    text-align: left;
+    list-style: none;
+    width: 100%;
+    height: auto;
+    padding: 30px 10px;
+     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+     border-radius: 15px;
+}
+.data li{
+
+    padding: 10px;
+}
+.data li span {
+    font-weight: bold;
+     color: #02abe9;
+}
+
+.box .widget{
+    margin: 10px 0;
+}
+.contactos p{
+    margin-top: 30px;
+    margin-bottom: -10px;
+    font-weight: bold;
+    padding: 10px 0;
+    font-size: 18px;
+    margin-left: -110px;
+}
+.contactos .contacto{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: left;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px auto;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+.contactos .contacto a{
+    text-decoration: none ;
+    padding: 0 30px;
+    color: rgb(0, 36, 94);
+    font-weight: 700;
+}
+.contactos .contacto i{
+    color: rgb(0, 126, 4);;
+    font-size: 22px;
+    position: absolute;
+   right: 25px;
+}
+.contactos .contacto:hover{
+    cursor: pointer;
+    transform: scale(1.05); 
+}
+
+
+.graph{
+    margin-top: -15px;
+    grid-area: graph;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    grid-template-areas:
+      "actElectrica actElectrica bpm"
+      "actElectrica actElectrica  nvlRiesgo"
+      "historial   historial     conexion"
+}
+.widgets{
+    background: rgba(61, 99, 159, 0.3);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px;
+
+}
+.bpm{
+    grid-area: bpm;
+    width: 280px;
+    height: 320px;
+}
+.bpm h1{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+.bpm .beats{
+    display: flex;
+    margin:220px 70px;
+    padding-left: 20px;
+}
+.nvlRiesgo{
+    grid-area: nvlRiesgo;
+    width: 280px;
+    height: 320px;
+
+}
+.conexion{
+    grid-area: conexion;
+    width: 280px;
+    height: 350px;
+}
+.actElectrica{
+    grid-area: actElectrica;
+    width: 600px;
+    height: 530px;
+}
+.historial{
+    grid-area: historial;
+    margin-top: -125px;
+    width: 600px;
+    height: 475px;
+   
+}
+.historial > p{
+    font-size: 22px;
+}
+
+.historial .ataque{
+    background: #fff;
+    color: rgb(0, 36, 94);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: left;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px auto;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+.historial .ataque:hover{
+    cursor: pointer;
+    transform: scale(1.02); 
+}
+
+.ataque .descripcion{
+    padding: 0 30px;
+    font-weight: 500;
+}
+
+.ataque .fecha{
+    position: absolute;
+   right: 30px;
+
+}
+
+.mapa{
+    margin-left: 15px;
+    width: 920px;
+    grid-area: mapa;
+     background: #3d639f4d;
+}
+/*animacion barra riesgo*/
+        .progress-container {
+            width: 40px;
+            height: 230px;
+            background-color: #d3d3d3;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: flex-end; /* Alinear barra al fondo */
+            margin: 10px 100px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0%; /* Inicialmente vacío */
+            background-color: green;
+            transition: height 0.5s ease, background-color 0.5s ease;
+        }
+
+        .progress-text {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+@media screen and (max-width: 820px) {
+    .profile{
+        width: 70%;
+    }
+    .main-content{
+        grid-template-areas:
+            "profile profile profile"
+            "graph graph graph"
+            "mapa mapa mapa";
+    }
+    .graph{
+         display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(5, auto);
+        gap: 20px;
+        grid-template-areas:
+        "actElectrica actElectrica actElectrica"
+        "bpm          bpm          bpm"
+        "nvlRiesgo    nvlRiesgo    nvlRiesgo"
+        "conexion     conexion     conexion"
+        "historial historial historial";
+    }
+    .widgets{
+        margin: auto;
+        width: 70%;
+        padding: 10px;
+        height: 360px;
+    }
+    .widget{
+        height: 260px;
+    }
+    .box .widget{
+        height: 300px;
+        width: 100%;
+    }
+}
+
+
  </style>
 
  <main class="main-content">
         <div class="profile">
-            <h3>Paciente</h3>
-            <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Roberto" style="width:30%; height:auto;">
-            <h4>{{ user.name }}</h4>
-            <div class="data">
-                <li>Edad: 20 años</li>
-                <li>Dirección: ---</li>
+            <p class="h1">PACIENTE</p>
+            <i class="fa-solid fa-user"></i>
+            <p class="h2"> Hola {{ user.name }} ¡Bienvenido! </p>
+                <p class="info">Información</p>
+            <div class=" data">
+                <li><span>Edad: </span>19 años</li>
+                <li><span>Dirección: </span> Santos Degollados, Qro.</li>
+            </div>
+            <div class=" contactos">
+                <p>Contactos de Emergencia</p>
+                <div class="contacto">
+                <a href="#">Sam</a><i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contacto">
+                    <a href="#">Robert</a><i class="fa-solid fa-phone"></i>
+                </div>
+               <div class="contacto">
+                    <a href="#">Jorge</a><i class="fa-solid fa-phone"></i>
+               </div>
             </div>
         </div>
-        <div class="boxes">
-            <div class="box">
-                <h3>Último Registro Guardado</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d933.6891806048242!2d-100.37312207155342!3d20.597990254174928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDM1JzUyLjgiTiAxMDDCsDIyJzIwLjkiVw!5e0!3m2!1ses-419!2smx!4v1732409930279!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <p>Fecha: 23/11/24</p>
-                <p>Hora: 22:59</p>
-            </div>
-            <div class="box">
-                <h3>Monitoreo actual</h3>
-                <img src="https://www.colorincolorado.org/sites/default/files/43815-graph.jpg" alt="Gráfica" style="width:80%; height:auto;">
-            </div>
-        </div>
-    </main>
 
+            <div class="box graph">
+                <div class="widgets bpm">
+                    BPM
+                     <div class="heart">
+                    </div>
+                    <div class="beats" id="bpm">80 bpm</div>
+
+                    {{!-- <iframe class="widget" width="100%" height="260" style="border:0;" frameborder="0" src="https://stem.ubidots.com/app/dashboards/public/widget/NIK0iSS1QBERgXk9CtA_FwTSbmoFOSYHBZnnKS7M018?embed=true"></iframe> --}}
+                </div>
+                <div class="widgets nvlRiesgo">
+                    Nivel de Riesgo
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                    {{!-- <iframe class="widget" width="100%" height="260" frameborder="0" src="https://stem.ubidots.com/app/dashboards/public/widget/OBlTpzYnMcRzELjmX_VrqfWSixZ399lBorEgnlbT7UY?embed=true"></iframe> --}}
+                </div>
+                <div class="widgets conexion">
+                    Estado de conexion
+                    <iframe class="widget" width="100%" height="260"  frameborder="0" src="https://stem.ubidots.com/app/dashboards/public/widget/ieSlkHK2Tb6D7-6bK0SdG9uK002IVSaZCQ5t_HOdSdc?embed=true"></iframe>
+                </div>
+                <div class="widgets actElectrica">
+                    Actividad Eléctrica
+                   <iframe class="widget" width="100%" height="450" width="100%" height="788" frameborder="0" src="https://stem.ubidots.com/app/dashboards/public/widget/LFw0hmNg70N0yOKGpYd_TGhTQ2m1aKPuEphump0a8uA?embed=true"></iframe>
+                    
+                </div>
+                <div class="widgets historial">
+                    <p>Historial</p>
+                    <div class="ataque">
+                        <p class="descripcion">Ataque registrado</p>
+                        <p class="fecha"> 20/11/24</p>
+                    </div>
+                    <div class="ataque">
+                        <p class="descripcion">Ataque registrado</p>
+                        <p class="fecha"> 07/10/24</p>
+                    </div>
+                    <div class="ataque">
+                        <p class="descripcion">Ataque registrado</p>
+                        <p class="fecha"> 12/09/24</p>
+                    </div>
+                    <div class="ataque">
+                        <p class="descripcion">Ataque registrado</p>
+                        <p class="fecha"> 01/08/24</p>
+                    </div>
+                </div>
+            </div>
+                <div class=" box mapa">
+                <h3>Último Registro Guardado</h3>
+                <iframe class="widget"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d541.4977364382331!2d-100.40327631393613!3d20.6142498422431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1732726378321!5m2!1ses-419!2smx" 
+                width="480" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p>Fecha: 27/11/24</p>
+                <p>Hora: 10:55</p>
+            </div>
+
+    </main>
     <script>
         const userMenu = document.querySelector('.user-menu');
         const drop = userMenu.querySelector('.drop');
@@ -166,5 +407,6 @@ body {
                 drop.style.display = 'none';
             }
         });
-
+        
     </script>
+    <script src="js/heart.js"></script>

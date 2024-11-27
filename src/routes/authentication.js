@@ -20,14 +20,7 @@ router.get('/login',(req, res)=>{
 });
 
 router.post('/login', (req, res, next) => {
-    // console.log(req.body);
-    // req.check('email', 'Username is Required').notEmpty();
-    // req.check('password', 'Password is Required').notEmpty();
-    // const errors = req.validationErrors();
-    // if (errors.length > 0) {
-    //   req.flash('message', errors[0].msg);
-    //   res.redirect('/login');
-    // }
+
     passport.authenticate('local.login', {
       successRedirect: '/profile',
       failureRedirect: '/login',

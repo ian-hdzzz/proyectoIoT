@@ -21,6 +21,13 @@ body{
     background: var(--var-black);
 }
 
+#particles-js {
+    position: absolute;
+    height: 100vh; 
+    width: 100%;
+    z-index: -1;
+}
+
 .contenedor-header{
     position: sticky; 
     display: flex;
@@ -30,6 +37,7 @@ body{
     z-index: 1000; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     transition: .4s;
+
 }
 .contenedor-header .logo{
     margin: 40px;
@@ -48,13 +56,19 @@ body{
     text-decoration: none;
 }
 .contenedor-header nav{
-    margin: auto -940px auto auto;
+    width: auto;
+
     background: none;
     box-shadow: none;
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
 }
 .contenedor-header nav a{
+    padding: 15px;
+    color: #fff;
     text-decoration: none;
     transition: .4s;
 }
@@ -91,20 +105,24 @@ body{
  }
  .contenedor-header .botones .comenzar{
     background: var(--var-blue);
+    transition: .4s;
 }
 .contenedor-header .botones .comenzar:hover{
     cursor: pointer;
     background:  rgb(6, 164, 255);
+    padding: 15px 27px;
 
 }
  .contenedor-header .botones .login{
     display: flex;
     justify-content: space-around;
     width: auto;
+    transition: .4s;
 }
 .contenedor-header .botones .login:hover{
     cursor: pointer;
     background: #ffffff24;
+    padding: 15px 27px;
 }
 
 
@@ -126,4 +144,20 @@ body{
     .contenedor-header .botones{
         display: none;
     }
+}
+
+.nav-item a{
+    color: var(--var-white);
+    text-decoration: none;
+    list-style: none;
+    transition: .4s;
+}
+.nav-item a:hover{
+    font-size: large;
+}
+
+/* loader */
+
+.show_loader{
+    display: flex;
 }

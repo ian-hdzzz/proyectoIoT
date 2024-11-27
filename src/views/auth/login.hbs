@@ -1,28 +1,100 @@
-<div class="container p-4">
-  <div class="row">
 
-    <div class="col-md-4 mx-auto">
-      <div class="card text-center">
-        <div class="card-header">
-          <h5>Iniciar Sesión</h5>
-        </div>
-        <img src="/img/logo.png" alt="Logo PSB" class="card-img-top mx-auto m-2 rounded-circle w-50">
-        <div class="card-body">
+
+<style>
+  .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 70px auto;
+    padding: 70px;
+    width: 30%;
+    height: auto;
+    background: #02156271;
+    border-radius: 20px;
+  }
+  .contenedor h2{
+    color: var(--var-white);
+    font-size: 30px;
+    margin:10px auto;
+  }
+  .contenedor .entradas{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    margin: 30px 0;
+
+  }
+  .contenedor .entradas input{
+    margin-left: -65px;
+    width: 190%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    padding: 20px 10px 20px 20px;
+  }
+  .entradas input::placeholder{
+    color: var(--var-white);
+  }
+
+.entradas i{
+ 
+  position: absolute;
+  top: 15px;
+  right: -50px;
+  color: #fff;
+
+}
+.contenedor .btn-success{
+  width: 190%;
+  height: 45px;
+  margin-left: -65px;
+  background: var(--var-blue);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.1 );
+  transition: .4s;
+}
+.contenedor .btn-success:hover{
+  transform: scale(1.05);
+    background:  rgb(6, 164, 255);
+}
+@media screen and (max-width: 820px) {
+  .contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 50px 10px 100px 10px;
+    width: 80%;
+    height: auto;
+    background: #02156271;
+    border-radius: 20px;
+  }
+}
+</style>
+
+<div class="contenedor">
+          <h2>Iniciar Sesión</h5>
           <form action="/login" method="POST">
-          
-            <div class="form-group">
-              <input type="text" name="email" placeholder="Correo" class="form-control" autofocus>
+            <div class="entradas">
+              <input type="text" name="email" placeholder="Correo" >  <i class="fa-solid fa-user"></i>
             </div>
-            <div class="form-group">
-              <input type="password" name="password" placeholder="Contraseña" class="form-control">
+            <div class="entradas">
+              <input type="password" name="password" placeholder="Contraseña"><i class="fa-solid fa-lock"></i>
             </div>
-            <button class="btn btn-primary btn-block">
-              Iniciar Sesión
-            </button>
+              <button class="btn-success"> Iniciar Sesión </button>
           </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

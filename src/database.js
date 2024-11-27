@@ -25,11 +25,11 @@ pool.getConnection((err, connection)=>{
 })
 pool.query =  promisify(pool.query);
 
-config();
+// config();
 
-const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL
-})
+// const pool = new pg.Pool({
+//     connectionString: process.env.DATABASE_URL
+// })
 
 
 module.exports = pool;

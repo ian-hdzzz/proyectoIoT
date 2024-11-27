@@ -14,5 +14,8 @@ helpers.matchPassword = async (password, savePassword) =>{
         console.log(e);
     }
 }
+helpers.eq = function(a, b) {
+    return a === b;
+};
 
 module.exports = helpers;
