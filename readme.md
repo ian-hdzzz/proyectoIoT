@@ -8,7 +8,7 @@ Comandos:
 > npm i bcryptjs body-parser connect connect-flash dotenv cookie-parser cors express express-handlebars express-myconnection express-mysql-session express-session express-validator flash morgan multer mysql passport passport-local timeago.js
 
 ## Interfaz
-(public/imgInterfaz/1.png)
-(public/imgInterfaz/2.png)
-(public/imgInterfaz/3.png)
-(public/imgInterfaz/4.png)
+[](public/imgInterfaz/1.png)
+[](public/imgInterfaz/2.png)
+[](public/imgInterfaz/3.png)
+[](public/imgInterfaz/4.png)
