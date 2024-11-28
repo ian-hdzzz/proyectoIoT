@@ -12,3 +12,6 @@ Comandos:
 ![](./src/public/imgInterfaz/2.png)
 ![](./src/public/imgInterfaz/3.png)
 ![](./src/public/imgInterfaz/4.png)
+![](./src/public/imgInterfaz/5.png)
+![](./src/public/imgInterfaz/6.png)
+![](./src/public/imgInterfaz/7.png)
