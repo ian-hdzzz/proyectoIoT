@@ -1,6 +1,6 @@
 ## Especificaciones
 >
- Para correr adecuadamente la pagina se necesita tener instalado node js y ejecutar el siguiente comando en la consola de la carpeta principal del proyecto para instalar las librerias necesarias 
+ Para correr adecuadamente la pagina se necesita tener instalado node js y ejecutar el siguiente comando en la consola de la carpeta principal del proyecto para instalar las librerias necesarias. Además, es necesario crear la base de datos de mySQL, para la creación y validación de usuarios, el código para ésta se encuentra dentro de la carpeta database.
 >
 Comandos: 
 > npm init --yes 
