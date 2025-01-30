@@ -10,8 +10,9 @@ const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 const helpers = require('./lib/helpers');
-
 const { database } = require('./keys');
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 
@@ -30,7 +31,7 @@ const app = express();
 require('./lib/passport');
 
 //Settings
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 4002);
 app.set('views', path.join(__dirname, 'views'));
 const exphbs = create({
     defaultLayout: 'main',
@@ -53,7 +54,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(session({
-    secret: 'ian',
+    secret: process.env.secret,
     resave: false,
     saveUninitialized: false,
     store: new MySQLStore(database)
