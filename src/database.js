@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql12');
 const {promisify} = require('util');
 const {database} = require('./keys');
 const pool = mysql.createPool(database);
