@@ -40,11 +40,17 @@ app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.set('trust proxy', 1); // Habilita proxy en Railway
 
 app.use(session({
-    secret: process.env.secret,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production', // Solo en HTTPS
+      httpOnly: true, // Evita acceso desde JavaScript en el cliente
+      sameSite: 'lax' // Protege contra ataques CSRF
+    },
     store: new MySQLStore(database)
   }));
 app.use(passport.initialize());
