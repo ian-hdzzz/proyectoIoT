@@ -42,7 +42,7 @@ app.use(express.json());
 app.set('trust proxy', 1); // Habilita proxy en Railway
 
 app.use(session({
-    secret: 'ian',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
