@@ -9,7 +9,7 @@ passport.use('local.login', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
   }, async (req, email, password, done) => {
-    const rows = await pool.query('SELECT * FROM user WHERE email = ?', [email]);
+    const rows = await pool.query('SELECT * FROM userClient WHERE email = ?', [email]);
     console.log(rows);
     if (rows.length > 0) {
       const user = rows[0];
@@ -43,7 +43,7 @@ passport.use('local.signup', new LocalStrategy({
     
     newUser.password = await helpers.encryptPassword(password);
     //Saving in the database
-    const result = await pool.query('INSERT INTO user SET ?', [newUser]);
+    const result = await pool.query('INSERT INTO userClient SET ?', [newUser]);
     newUser.id = result.insertId;
     return done(null, newUser);
 
@@ -55,6 +55,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id,done) => {
-    const rows = await pool.query('SELECT * FROM user WHERE id = ?', [id]);
+    const rows = await pool.query('SELECT * FROM userClient WHERE id = ?', [id]);
     done(null, rows[0]);    
 });
