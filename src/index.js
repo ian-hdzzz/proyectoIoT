@@ -45,11 +45,7 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production', // Solo en HTTPS
-      httpOnly: true, // Evita acceso desde JavaScript en el cliente
-      sameSite: 'lax' // Protege contra ataques CSRF
-    },
+    cookie: { secure: process.env.NODE_ENV },
     store: new MySQLStore(database)
   }));
 app.use(passport.initialize());
@@ -71,6 +67,7 @@ app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).send('Internal Server Error');
 });
+
 //Routes 
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
