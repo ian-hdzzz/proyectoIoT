@@ -4,8 +4,6 @@ const {database} = require('./keys');
 const pool = mysql.createPool(database);
 const express = require('express');
 
-
-
 pool.getConnection((err, connection)=>{
     if(err){
 
@@ -24,12 +22,5 @@ pool.getConnection((err, connection)=>{
     return;
 })
 pool.query =  promisify(pool.query);
-
-// config();
-
-// const pool = new pg.Pool({
-//     connectionString: process.env.DATABASE_URL
-// })
-
 
 module.exports = pool;

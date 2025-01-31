@@ -36,14 +36,13 @@ app.set('view engine', '.hbs');
 
 
 //Middlewares
-app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.set('trust proxy', 1); // Habilita proxy en Railway
 
 app.use(session({
-    secret: process.env.SECRET,
+    secret: 'ian',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -56,15 +55,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 //Global variables
+app.use(flash());
 app.use((req, res, next) => {
-    app.locals.message = req.flash('message');
-    app.locals.success = req.flash('success');
-    app.locals.user = req.user;
-    app.locals.currentPath = req.path; 
+    res.locals.message = req.flash('message');
+    res.locals.success = req.flash('success');
+    res.locals.user = req.user;
+    res.locals.currentPath = req.path;
     next();
-  });
-  
+});
+
+// Luego, define el middleware de errores sin req.flash()
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+});
 //Routes 
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
@@ -73,7 +79,11 @@ app.use(require('./routes/authentication'));
 //Public
 app.use(express.static(path.join(__dirname,'public')));
 
+
+
+
 //Starting server 
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 })
+
